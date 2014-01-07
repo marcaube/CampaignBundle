@@ -1,0 +1,7 @@
+parameters:
+#    ob_campaign.example.class: Ob\CampaignBundle\Example
+
+services:
+#    ob_campaign.example:
+#        class: %ob_campaign.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
