@@ -24,5 +24,11 @@ class ObCampaignExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        $container->setParameter('from', $config['from']);
+        $container->setParameter('reply_to', $config['reply_to']);
+        $container->setParameter('use_premailer', $config['use_premailer']);
+        $container->setParameter('image_folder', $config['image_folder']);
+        $container->setParameter('binary_path', $config['binary_path']);
     }
 }

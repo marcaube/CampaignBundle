@@ -1,7 +1,13 @@
 parameters:
-#    ob_campaign.example.class: Ob\CampaignBundle\Example
+    ob_campaign.snapshot.class: Ob\Campaign\Utils\Snapshot
+    ob_campaign.premailer.class: Ob\Campaign\Premailer\Premailer
+    ob_campaign.image_folder: /usr/local/bin/wkhtmltoimage2
+    ob_campaign.binary_path: %kernel.root_dir%/../web/images/campaign
 
 services:
-#    ob_campaign.example:
-#        class: %ob_campaign.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    ob_campaign.snapshot:
+        class: %ob_campaign.snapshot.class%
+        arguments: [%ob_campaign.image_folder%, %ob_campaign.binary_path%]
+
+    ob_campaign.premailer:
+        class: %ob_campaign.premailer.class%

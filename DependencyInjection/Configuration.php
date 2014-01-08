@@ -20,9 +20,31 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('ob_campaign');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->scalarNode('from')
+                    ->isRequired()
+                    ->cannotBeEmpty()
+                    ->info('The email address used to send campaigns')
+                ->end()
+                ->scalarNode('reply_to')
+                    ->defaultNull()
+                    ->info('The campaigns\' reply-to email, defaults to email_from')
+                ->end()
+                ->booleanNode('use_premailer')
+                    ->defaultFalse()
+                    ->info('Run the pre-mailer on email code')
+                ->end()
+                ->scalarNode('image_folder')
+                    ->defaultNull()
+                    ->info('The folder where snapshot images will be saved')
+                ->end()
+                ->scalarNode('binary_path')
+                    ->defaultValue('/usr/local/bin/wkhtmltoimage')
+                    ->info('The wkhtmltoimage binary path')
+                ->end()
+            ->end();
+
 
         return $treeBuilder;
     }
