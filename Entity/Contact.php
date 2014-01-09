@@ -1,6 +1,6 @@
 <?php
 
-namespace CampaignBundle\Model;
+namespace CampaignBundle\Entity;
 
 use Campaign\Model\Contact as BaseContact;
 
