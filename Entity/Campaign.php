@@ -1,6 +1,6 @@
 <?php
 
-namespace CampaignBundle\Entity;
+namespace Ob\CampaignBundle\Entity;
 
 use Campaign\Model\Campaign as BaseCampaign;
 
