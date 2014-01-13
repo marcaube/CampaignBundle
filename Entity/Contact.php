@@ -4,6 +4,7 @@ namespace Ob\CampaignBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Campaign\Model\Contact as BaseContact;
+use Campaign\Model\Email;
 
 /**
  * @ORM\Entity
