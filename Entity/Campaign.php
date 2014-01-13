@@ -2,50 +2,51 @@
 
 namespace Ob\CampaignBundle\Entity;
 
+use Doctrine\ORM\Mapping AS ORM;
 use Campaign\Model\Campaign as BaseCampaign;
 
 /**
- * @Entity
- * @Table(name="ob_campaigns")
+ * @ORM\Entity
+ * @ORM\Table(name="ob_campaigns")
  */
 class Campaign extends BaseCampaign
 {
     /**
-     * @Id
-     * @Column(type="integer")
-     * @generatedValue(strategy="IDENTITY")
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\generatedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $title;
+    protected $title;
 
     /**
-     * @Column(type="text", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $body;
+    protected $body;
 
     /**
-     * @Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $fromEmail;
+    protected $fromEmail;
 
     /**
-     * @Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $replyToEmail;
+    protected $replyToEmail;
 
     /**
-     * @Column(type="integer")
+     * @ORM\Column(type="integer")
      */
-    private $status;
+    protected $status;
 
     /**
-     * @Column(type="datetime")
+     * @ORM\Column(type="datetime")
      */
-    private $date;
+    protected $date;
 
     /**
      * @param int $id

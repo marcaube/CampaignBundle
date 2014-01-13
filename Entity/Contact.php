@@ -2,23 +2,47 @@
 
 namespace Ob\CampaignBundle\Entity;
 
+use Doctrine\ORM\Mapping AS ORM;
 use Campaign\Model\Contact as BaseContact;
 
 /**
- * @Entity
- * @Table(name="ob_contacts")
+ * @ORM\Entity
+ * @ORM\Table(name="ob_contacts")
  */
 class Contact extends BaseContact
 {
     /**
-     * @Column(type="object")
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\generatedValue(strategy="IDENTITY")
      */
-    private $email;
+    private $id;
 
     /**
-     * @Column(type="array")
+     * @ORM\Column(type="object")
      */
-    private $columns;
+    protected $email;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    protected $columns;
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @param Email $email

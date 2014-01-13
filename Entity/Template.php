@@ -2,28 +2,52 @@
 
 namespace Ob\CampaignBundle\Entity;
 
+use Doctrine\ORM\Mapping AS ORM;
 use Campaign\Model\Template as BaseTemplate;
 
 /**
- * @Entity
- * @Table(name="ob_templates")
+ * @ORM\Entity
+ * @ORM\Table(name="ob_templates")
  */
 class Template extends BaseTemplate
 {
     /**
-     * @Column(type="string", length=255)
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\generatedValue(strategy="IDENTITY")
      */
-    private $name;
+    private $id;
 
     /**
-     * @Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
-    private $code;
+    protected $name;
 
     /**
-     * @Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text")
      */
-    private $snapshot;
+    protected $code;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $snapshot;
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @param string $name
