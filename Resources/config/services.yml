@@ -1,8 +1,8 @@
 parameters:
-    ob_campaign.snapshot.class: Ob\Campaign\Utils\Snapshot
-    ob_campaign.premailer.class: Ob\Campaign\Premailer\Premailer
-    ob_campaign.image_folder: /usr/local/bin/wkhtmltoimage2
-    ob_campaign.binary_path: %kernel.root_dir%/../web/images/campaign
+    ob_campaign.snapshot.class: Campaign\Utils\Snapshot
+    ob_campaign.premailer.class: Campaign\Premailer\Premailer
+    ob_campaign.binary_path: /usr/local/bin/wkhtmltoimage
+    ob_campaign.image_folder: %kernel.root_dir%/../web/images/campaign/
 
 services:
     ob_campaign.snapshot:
