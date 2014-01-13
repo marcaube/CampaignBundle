@@ -28,7 +28,10 @@ class ObCampaignExtension extends Extension
         $container->setParameter('ob_campaign.from', $config['from']);
         $container->setParameter('ob_campaign.reply_to', $config['reply_to']);
         $container->setParameter('ob_campaign.use_premailer', $config['use_premailer']);
-        $container->setParameter('ob_campaign.image_folder', $config['image_folder']);
         $container->setParameter('ob_campaign.binary_path', $config['binary_path']);
+
+        if (null !== $config['image_folder']) {
+            $container->setParameter('ob_campaign.image_folder', $config['image_folder']);
+        }
     }
 }
