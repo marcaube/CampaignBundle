@@ -7,7 +7,7 @@ use Campaign\Model\Campaign as BaseCampaign;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="ob_campaigns")
+ * @ORM\Table(name="ob_campaigns__campaigns")
  */
 class Campaign extends BaseCampaign
 {

@@ -7,7 +7,7 @@ use Campaign\Model\Template as BaseTemplate;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="ob_templates")
+ * @ORM\Table(name="ob_campaigns__templates")
  */
 class Template extends BaseTemplate
 {

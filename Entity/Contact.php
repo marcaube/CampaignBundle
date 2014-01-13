@@ -7,7 +7,7 @@ use Campaign\Model\Contact as BaseContact;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="ob_contacts")
+ * @ORM\Table(name="ob_campaigns__contacts")
  */
 class Contact extends BaseContact
 {
