@@ -14,9 +14,17 @@
         }
     ],
 
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/marcaube/Campaign"
+        }
+    ],
+
     "require": {
         "php": ">=5.3",
-        "symfony/symfony": "2.*"
+        "symfony/symfony": "2.*",
+        "ob/campaign": "dev-master"
     },
 
     "require-dev": {
