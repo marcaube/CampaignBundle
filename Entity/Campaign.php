@@ -3,15 +3,18 @@
 namespace Ob\CampaignBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
-use Campaign\Model\Campaign as BaseCampaign;
-use Campaign\Model\Email;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="ob_campaigns__campaigns")
  */
-class Campaign extends BaseCampaign
+class Campaign
 {
+    const STATUS_DRAFT   = 0;
+    const STATUS_PLANNED = 10;
+    const STATUS_SENDING = 20;
+    const STATUS_SENT    = 30;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -53,6 +56,64 @@ class Campaign extends BaseCampaign
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $snapshot;
+
+    public function __construct()
+    {
+        $this->status = self::STATUS_DRAFT;
+    }
+
+    /**
+     * @param \DateTime $date
+     *
+     * @return Campaign
+     */
+    public function plan(\DateTime $date)
+    {
+        $this->date = $date;
+        $this->status = self::STATUS_PLANNED;
+
+        return $this;
+    }
+
+    /**
+     * Is it a draft?
+     *
+     * @return bool
+     */
+    public function isDraft()
+    {
+        return $this->status == self::STATUS_DRAFT;
+    }
+
+    /**
+     * Is the campaign planned for sending?
+     *
+     * @return bool
+     */
+    public function isPlanned()
+    {
+        return $this->status == self::STATUS_PLANNED;
+    }
+
+    /**
+     * Is the campaign in the process of being sent?
+     *
+     * @return bool
+     */
+    public function isSending()
+    {
+        return $this->status == self::STATUS_SENDING;
+    }
+
+    /**
+     * Has it been sent?
+     *
+     * @return bool
+     */
+    public function isSent()
+    {
+        return $this->status == self::STATUS_SENT;
+    }
 
     /**
      * @param int $id
@@ -103,7 +164,7 @@ class Campaign extends BaseCampaign
     }
 
     /**
-     * @param Email $fromEmail
+     * @param string $fromEmail
      */
     public function setFromEmail($fromEmail)
     {
@@ -111,7 +172,7 @@ class Campaign extends BaseCampaign
     }
 
     /**
-     * @return Email
+     * @return string
      */
     public function getFromEmail()
     {
@@ -119,7 +180,7 @@ class Campaign extends BaseCampaign
     }
 
     /**
-     * @param Email $replyToEmail
+     * @param string $replyToEmail
      */
     public function setReplyToEmail($replyToEmail)
     {
@@ -127,7 +188,7 @@ class Campaign extends BaseCampaign
     }
 
     /**
-     * @return Email
+     * @return string
      */
     public function getReplyToEmail()
     {
@@ -135,11 +196,15 @@ class Campaign extends BaseCampaign
     }
 
     /**
-     * {@inheritdoc}
+     * @param int $status
+     *
+     * @return Campaign
      */
     public function setStatus($status)
     {
-        parent::setStatus($status);
+        $this->status = $status;
+
+        return $this;
     }
 
     /**

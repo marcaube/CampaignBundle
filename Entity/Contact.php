@@ -3,14 +3,12 @@
 namespace Ob\CampaignBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
-use Campaign\Model\Contact as BaseContact;
-use Campaign\Model\Email;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="ob_campaigns__contacts")
  */
-class Contact extends BaseContact
+class Contact
 {
     /**
      * @ORM\Id
@@ -46,7 +44,7 @@ class Contact extends BaseContact
     }
 
     /**
-     * @param Email $email
+     * @param string $email
      */
     public function setEmail($email)
     {
@@ -54,7 +52,7 @@ class Contact extends BaseContact
     }
 
     /**
-     * @return Email
+     * @return string
      */
     public function getEmail()
     {
