@@ -20,17 +20,17 @@ class Template
     /**
      * @ORM\Column(type="string", length=255)
      */
-    protected $name;
+    private $name;
 
     /**
      * @ORM\Column(type="text")
      */
-    protected $code;
+    private $code;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $snapshot;
+    private $snapshot;
 
     /**
      * @param int $id

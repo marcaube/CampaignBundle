@@ -20,12 +20,12 @@ class Contact
     /**
      * @ORM\Column(type="object")
      */
-    protected $email;
+    private $email;
 
     /**
      * @ORM\Column(type="array")
      */
-    protected $columns;
+    private $columns;
 
     /**
      * @param int $id

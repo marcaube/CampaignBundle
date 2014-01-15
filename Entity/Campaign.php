@@ -25,37 +25,37 @@ class Campaign
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $title;
+    private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $body;
+    private $body;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $fromEmail;
+    private $fromEmail;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $replyToEmail;
+    private $replyToEmail;
 
     /**
      * @ORM\Column(type="integer")
      */
-    protected $status;
+    private $status;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    protected $date;
+    private $date;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $snapshot;
+    private $snapshot;
 
     public function __construct()
     {
