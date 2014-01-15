@@ -50,6 +50,11 @@ class Campaign extends BaseCampaign
     protected $date;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $snapshot;
+
+    /**
      * @param int $id
      */
     public function setId($id)
@@ -159,5 +164,21 @@ class Campaign extends BaseCampaign
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * @param string $snapshot
+     */
+    public function setSnapshot($snapshot)
+    {
+        $this->snapshot = $snapshot;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSnapshot()
+    {
+        return $this->snapshot;
     }
 }
