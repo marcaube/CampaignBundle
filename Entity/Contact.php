@@ -13,7 +13,7 @@ class Contact
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\generatedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
