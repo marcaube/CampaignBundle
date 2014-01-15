@@ -40,6 +40,11 @@ class Campaign
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    private $fromName;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private $replyToEmail;
 
     /**
@@ -177,6 +182,22 @@ class Campaign
     public function getFromEmail()
     {
         return $this->fromEmail;
+    }
+
+    /**
+     * @param string $fromName
+     */
+    public function setFromName($fromName)
+    {
+        $this->fromName = $fromName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFromName()
+    {
+        return $this->fromName;
     }
 
     /**
