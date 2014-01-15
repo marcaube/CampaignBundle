@@ -17,6 +17,7 @@
     "require": {
         "php": ">=5.3",
         "symfony/symfony": "2.*",
+        "guzzle/guzzle": "~3.7",
         "knplabs/knp-snappy": "*"
     },
 
