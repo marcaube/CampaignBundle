@@ -41,6 +41,7 @@ class Snapshot
         $filePath = $this->folder . $fileName;
 
         $snappy = new Image($this->binaryPath);
+        $snappy->setOption('disable-javascript', true);
         $snappy->setTimeout(0);
         $snappy->generateFromHtml($html, $filePath);
 
