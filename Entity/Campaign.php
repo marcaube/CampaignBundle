@@ -68,11 +68,11 @@ class Campaign
     }
 
     /**
-     * @param \DateTime $date
+     * @param \DateTime|null $date
      *
      * @return Campaign
      */
-    public function plan(\DateTime $date = null)
+    public function plan($date = null)
     {
         if ($date != null) {
             $this->date = $date;
