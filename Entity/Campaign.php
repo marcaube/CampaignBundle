@@ -72,10 +72,20 @@ class Campaign
      *
      * @return Campaign
      */
-    public function plan(\DateTime $date)
+    public function plan(\DateTime $date = null)
     {
-        $this->date = $date;
+        if ($date != null) {
+            $this->date = $date;
+        }
+
         $this->status = self::STATUS_PLANNED;
+
+        return $this;
+    }
+
+    public function unPlan()
+    {
+        $this->status = self::STATUS_DRAFT;
 
         return $this;
     }
